@@ -163,7 +163,7 @@ const container = document.querySelector(".btn-container")
 //load items
 window.addEventListener("DOMContentLoaded", function () {
     displayMenuItems(menu)
-    displayMenuButtons()   
+    displayMenuButtons()
 })
 
 
@@ -189,7 +189,7 @@ function displayMenuItems(menuItems) {
 }
 
 
-function displayMenuButtons(){
+function displayMenuButtons() {
     const categories = menu.reduce(function (values, item) {
         if (!values.includes(item.category)) {
             values.push(item.category)
@@ -202,10 +202,10 @@ function displayMenuButtons(){
         return ` <button type="button" class="filter-btn" data-id=${category}>${category}</button>`
     }).join("")
     container.innerHTML = categoryBtns
-    
+
 
     const filterBtns = document.querySelectorAll(".filter-btn")
-   
+
     //filter items
 
     filterBtns.forEach(function (btn) {
@@ -226,6 +226,18 @@ function displayMenuButtons(){
         });
     });
 
-   
+    for (let i = 0; i < filterBtns.length; i++) {
+        filterBtns[i].addEventListener("click", function () {
+            let current = document.getElementsByClassName("active");
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" active", "");
+
+            }
+            // console.log(filterBtns)
+            this.className += " active";
+        });
+    }
+
+
 }
 
