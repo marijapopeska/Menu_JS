@@ -202,7 +202,7 @@ function displayMenuButtons() {
         return ` <button type="button" class="filter-btn" data-id=${category}>${category}</button>`
     }).join("")
     container.innerHTML = categoryBtns
-
+    container.classList.add("scrollable");
 
     const filterBtns = document.querySelectorAll(".filter-btn")
 
@@ -231,7 +231,7 @@ function displayMenuButtons() {
             let current = document.getElementsByClassName("active");
             if (current.length > 0) {
                 current[0].className = current[0].className.replace(" active", "");
-
+                
             }
             // console.log(filterBtns)
             this.className += " active";
